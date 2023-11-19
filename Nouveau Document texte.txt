@@ -1,0 +1,20 @@
+  ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--remote-allow-origins=*");
+                    System.setProperty("webdriver.chrome.driver","C:\\Workspace\\projects\\SpringBootEmail-master\\src\\test\\resources\\chromedriver.exe");
+
+                    String urlToOpen = "";
+
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(urlToOpen);
+                    driver.manage().window().maximize();
+
+                    //selenium part
+                    driver.findElement(By.xpath("//*[@id=\"button_connexion\"]")).click();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    driver.findElement(By.xpath("//*[@id=\"login_email\"]")).sendKeys("aaaaa");
+                    driver.findElement(By.xpath("//*[@id=\"overlay-login\"]/div/div/div/div[2]/form/div[2]/input")).sendKeys("bbbb");
+                    driver.findElement(By.xpath("//*[@id=\"login_validate\"]")).click();
